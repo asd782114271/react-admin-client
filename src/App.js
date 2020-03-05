@@ -1,15 +1,18 @@
 import React,{Component} from 'react';
-import {Button, message} from 'antd'
-class App extends Component{
-  handClick = ()=>{
-    message.success('成功啦。。。')
-  }
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
 
+import Admin  from './pages/admin/index'  //后台管理页面组件
+import Login  from './pages/login/index'  //登录页面组件
+
+class App extends Component{
   render(){
     return (
-      <div>
-        <Button type="primary" onClick={this.handClick}>button</Button>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login" component={Login} ></Route>
+          <Route path="/" component={Admin} ></Route>
+        </Switch>
+      </BrowserRouter>
     )
   }
 } 
